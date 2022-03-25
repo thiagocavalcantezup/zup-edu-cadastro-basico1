@@ -34,6 +34,7 @@ public class ClienteDTO {
     private String email;
 
     @NotBlank
+    @Size(max = 20)
     private String telefone;
 
     public ClienteDTO() {}
@@ -43,7 +44,7 @@ public class ClienteDTO {
                       @NotBlank @Size(max = 14) @CPF String cpf,
                       @NotBlank @Size(max = 20) String rg,
                       @NotBlank @Size(min = 30, max = 200) String endereco,
-                      @NotBlank @Email String email, @NotBlank String telefone) {
+                      @NotBlank @Email String email, @NotBlank @Size(max = 20) String telefone) {
         this.nome = nome;
         this.sobrenome = sobrenome;
         this.cpf = cpf;
@@ -54,7 +55,11 @@ public class ClienteDTO {
     }
 
     public Cliente paraCliente() {
-        return new Cliente(nome, sobrenome, cpf, rg, endereco, email, telefone);
+        String novoCpf = cpf.replaceAll("[^0-9]", "");
+        String novoRg = rg.replaceAll("[^0-9A-Z/\\-,]", "");
+        String novoTelefone = telefone.replaceAll("[^0-9]", "");
+
+        return new Cliente(nome, sobrenome, novoCpf, novoRg, endereco, email, novoTelefone);
     }
 
     public String getNome() {
