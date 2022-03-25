@@ -56,7 +56,7 @@ public class ClienteDTO {
 
     public Cliente paraCliente() {
         String novoCpf = cpf.replaceAll("[^0-9]", "");
-        String novoRg = rg.replaceAll("[^0-9A-Z/\\-,]", "");
+        String novoRg = rg.replaceAll("[^0-9A-Z/\\-, ]", "");
         String novoTelefone = telefone.replaceAll("[^0-9]", "");
 
         return new Cliente(nome, sobrenome, novoCpf, novoRg, endereco, email, novoTelefone);
