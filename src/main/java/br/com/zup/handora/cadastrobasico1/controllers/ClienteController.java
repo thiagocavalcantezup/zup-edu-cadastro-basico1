@@ -30,11 +30,10 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<Void> create(@RequestBody @Valid ClienteDTO clienteDTO,
                                        UriComponentsBuilder uriComponentsBuilder) {
-        Cliente cliente = clienteDTO.paraCliente();
-        Cliente savedCliente = clienteRepository.save(cliente);
+        Cliente cliente = clienteRepository.save(clienteDTO.paraCliente());
 
         URI location = uriComponentsBuilder.path(ClienteController.BASE_PATH + "/{id}")
-                                           .buildAndExpand(savedCliente.getId())
+                                           .buildAndExpand(cliente.getId())
                                            .toUri();
 
         return ResponseEntity.created(location).build();
