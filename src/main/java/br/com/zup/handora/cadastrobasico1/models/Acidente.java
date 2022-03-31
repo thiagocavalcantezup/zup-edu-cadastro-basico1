@@ -11,9 +11,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Past;
 
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @Entity
 @Table(name = "acidentes")
 public class Acidente {
@@ -24,8 +21,6 @@ public class Acidente {
 
     @Column(nullable = false)
     @Past
-    @JsonProperty("data_hora_acontecimento")
-    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss")
     private LocalDateTime dataHoraAcontecimento;
 
     @Column(nullable = false)
