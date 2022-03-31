@@ -23,7 +23,7 @@ public class Carro {
     private String placa;
 
     @Column(nullable = false, length = 11)
-    private String renavan;
+    private String renavam;
 
     @Column(nullable = false)
     private String marca;
@@ -51,10 +51,10 @@ public class Carro {
     @Deprecated
     public Carro() {}
 
-    public Carro(String placa, String renavan, String marca, String modelo, String chassi,
+    public Carro(String placa, String renavam, String marca, String modelo, String chassi,
                  Integer ano, BigDecimal valor, Cliente cliente) {
         this.placa = placa;
-        this.renavan = renavan;
+        this.renavam = renavam;
         this.marca = marca;
         this.modelo = modelo;
         this.chassi = chassi;

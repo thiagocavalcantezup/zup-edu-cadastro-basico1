@@ -14,7 +14,7 @@ public class CarroDTO {
 
     @NotBlank
     @Size(min = 11, max = 11)
-    private String renavan;
+    private String renavam;
 
     @NotBlank
     private String marca;
@@ -35,11 +35,11 @@ public class CarroDTO {
 
     public CarroDTO() {}
 
-    public CarroDTO(@NotBlank String placa, @NotBlank @Size(min = 11, max = 11) String renavan,
+    public CarroDTO(@NotBlank String placa, @NotBlank @Size(min = 11, max = 11) String renavam,
                     @NotBlank String marca, @NotBlank String modelo, @NotBlank String chassi,
                     @NotNull @Positive Integer ano, @NotNull @Positive BigDecimal valor) {
         this.placa = placa;
-        this.renavan = renavan;
+        this.renavam = renavam;
         this.marca = marca;
         this.modelo = modelo;
         this.chassi = chassi;
@@ -48,15 +48,15 @@ public class CarroDTO {
     }
 
     public Carro paraCarro(Cliente cliente) {
-        return new Carro(placa, renavan, marca, modelo, chassi, ano, valor, cliente);
+        return new Carro(placa, renavam, marca, modelo, chassi, ano, valor, cliente);
     }
 
     public String getPlaca() {
         return placa;
     }
 
-    public String getRenavan() {
-        return renavan;
+    public String getrenavam() {
+        return renavam;
     }
 
     public String getMarca() {
