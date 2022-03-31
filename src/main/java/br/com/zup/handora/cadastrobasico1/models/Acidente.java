@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.Past;
+import javax.validation.constraints.PastOrPresent;
 
 @Entity
 @Table(name = "acidentes")
@@ -20,7 +21,7 @@ public class Acidente {
     private Long id;
 
     @Column(nullable = false)
-    @Past
+    @PastOrPresent
     private LocalDateTime dataHoraAcontecimento;
 
     @Column(nullable = false)
