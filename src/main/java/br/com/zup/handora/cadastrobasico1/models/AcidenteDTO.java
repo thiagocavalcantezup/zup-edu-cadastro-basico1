@@ -33,21 +33,28 @@ public class AcidenteDTO {
     @NotBlank
     private String cep;
 
+    @NotBlank
+    private String observacoes;
+
     public AcidenteDTO() {}
 
     public AcidenteDTO(@NotNull @Past LocalDateTime dataHoraAcontecimento, @NotBlank String cidade,
                        @NotBlank String estado, @NotBlank String logradouro,
-                       @NotBlank String bairro, @NotBlank String cep) {
+                       @NotBlank String bairro, @NotBlank String cep,
+                       @NotBlank String observacoes) {
         this.dataHoraAcontecimento = dataHoraAcontecimento;
         this.cidade = cidade;
         this.estado = estado;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cep = cep;
+        this.observacoes = observacoes;
     }
 
     public Acidente paraAcidente(Carro carro) {
-        return new Acidente(dataHoraAcontecimento, cidade, estado, logradouro, bairro, cep, carro);
+        return new Acidente(
+            dataHoraAcontecimento, cidade, estado, logradouro, bairro, cep, observacoes, carro
+        );
     }
 
     public LocalDateTime getDataHoraAcontecimento() {
@@ -72,6 +79,10 @@ public class AcidenteDTO {
 
     public String getCep() {
         return cep;
+    }
+
+    public String getObservacoes() {
+        return observacoes;
     }
 
 }

@@ -39,6 +39,9 @@ public class Acidente {
     @Column(nullable = false)
     private String cep;
 
+    @Column(nullable = false)
+    private String observacoes;
+
     @ManyToOne(optional = false)
     private Carro carro;
 
@@ -49,13 +52,14 @@ public class Acidente {
     public Acidente() {}
 
     public Acidente(@Past LocalDateTime dataHoraAcontecimento, String cidade, String estado,
-                    String logradouro, String bairro, String cep, Carro carro) {
+                    String logradouro, String bairro, String cep, String observacoes, Carro carro) {
         this.dataHoraAcontecimento = dataHoraAcontecimento;
         this.cidade = cidade;
         this.estado = estado;
         this.logradouro = logradouro;
         this.bairro = bairro;
         this.cep = cep;
+        this.observacoes = observacoes;
         this.carro = carro;
     }
 
