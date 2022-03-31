@@ -29,6 +29,12 @@ public class ErroPadronizado {
     }
 
     public void adicionarErro(FieldError fieldError) {
+        String field = fieldError.getField();
+
+        if (field.equals("dataHoraAcontecimento")) {
+            field = "data_hora_acontecimento";
+        }
+
         mensagens.add(fieldError.getField() + ": " + fieldError.getDefaultMessage());
     }
 
