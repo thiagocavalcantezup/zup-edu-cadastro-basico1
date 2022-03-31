@@ -16,12 +16,12 @@ import br.com.zup.handora.cadastrobasico1.models.ClienteDTO;
 import br.com.zup.handora.cadastrobasico1.repositories.ClienteRepository;
 
 @RestController
-@RequestMapping(ClienteController.BASE_PATH)
+@RequestMapping(ClienteController.BASE_URI)
 public class ClienteController {
 
     private final ClienteRepository clienteRepository;
 
-    public static final String BASE_PATH = "/clientes";
+    public static final String BASE_URI = "/clientes";
 
     public ClienteController(ClienteRepository clienteRepository) {
         this.clienteRepository = clienteRepository;
@@ -32,7 +32,7 @@ public class ClienteController {
                                        UriComponentsBuilder uriComponentsBuilder) {
         Cliente cliente = clienteRepository.save(clienteDTO.paraCliente());
 
-        URI location = uriComponentsBuilder.path(ClienteController.BASE_PATH + "/{id}")
+        URI location = uriComponentsBuilder.path(ClienteController.BASE_URI + "/{id}")
                                            .buildAndExpand(cliente.getId())
                                            .toUri();
 
